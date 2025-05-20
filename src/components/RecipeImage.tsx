@@ -1,4 +1,3 @@
-// filepath: src/components/RecipeImage.tsx
 import React from "react";
 
 interface RecipeImageProps {
@@ -6,5 +5,9 @@ interface RecipeImageProps {
 }
 
 export const RecipeImage: React.FC<RecipeImageProps> = ({ className }) => (
-  <img src="./images/image-omelette.jpeg" className={className} alt="Omelette" />
+  <img
+    src="./images/image-omelette.jpeg"
+    className={className}
+    alt="Omelette"
+  />
 );

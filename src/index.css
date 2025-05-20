@@ -9,3 +9,24 @@
   --stone-600: #5F564D;
   --divider: #E3DDD7;
 }
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Young Serif';
+  src: url('/fonts/young-serif/YoungSerif-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Outfit', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Young Serif', serif;
+}
