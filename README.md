@@ -1,54 +1,56 @@
-# React + TypeScript + Vite
+# UI Recipe Page Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is just for practice UI stuff built with React, TypeScript, Vite, and Tailwind CSS 4.x.
 
-Currently, two official plugins are available:
+## Main Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Componentization**: Each section of the recipe (intro, ingredients, instructions, nutrition, etc.) is a reusable React component.
+- **Centralized Data**: All recipe information is stored in a JSON file (`src/recipe-data.json`) and consumed dynamically by the components.
+- **Custom Colors**: Main colors are defined as CSS variables in `src/index.css` and used in Tailwind classes with the syntax `bg-[var(--color)]` and `text-[var(--color)]`.
+- **Custom Fonts**: Local fonts Outfit (for general text) and Young Serif (for headings) are imported from `public/fonts` and declared in `src/index.css`.
+- **Reusable Image**: The `RecipeImage` component displays the recipe image with dynamic Tailwind classes.
+- **Custom Numbered Lists**: Instructions use Tailwind utilities and/or pseudo-elements for custom spacing and numbering.
 
-## Expanding the ESLint configuration
+## Relevant File Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+public/fonts/
+  outfit/Outfit-VariableFont_wght.ttf
+  young-serif/YoungSerif-Regular.ttf
+src/
+  App.tsx
+  App.css
+  index.css
+  recipe-data.json
+  components/
+    Ingredients.tsx
+    Instructions.tsx
+    Nutrition.tsx
+    PreparationTime.tsx
+    RecipeImage.tsx
+    RecipeIntro.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Customizing Colors and Fonts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Edit colors in the `:root` block in `src/index.css`.
+- Change fonts in the `@font-face` blocks in the same file.
+- Use the variables in components with Tailwind syntax: `bg-[var(--stone-100)]`, `text-[var(--brown-800)]`, etc.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Dynamic Data Usage
+
+All recipe information is in `src/recipe-data.json`. To change ingredients, instructions, times, or nutrition values, just edit that file.
+
+## Scripts
+
+- `pnpm run dev` — Start the development server.
+- `pnpm run build` — Build the app for production.
+- `pnpm run lint` — Run ESLint with recommended rules and support for React and TypeScript.
+
+## ESLint and Best Practices
+
+The project is set up to use strict ESLint rules and supports plugins for React and TypeScript. You can expand the configuration following the documentation included in this README.
+
+---
+
+For questions about structure, styles, or how to extend the solution, check the comments in the components or refer to the Tailwind and React documentation.
